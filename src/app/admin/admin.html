@@ -1,0 +1,27 @@
+<div class="admin-container">
+  <h1>Admin Dashboard</h1>
+  <h3>Submitted Enquiries</h3>
+
+  <p *ngIf="loading">Loading enquiries...</p>
+
+  <p *ngIf="errorMessage">
+    {{ errorMessage }}
+  </p>
+
+  <p *ngIf="!loading && !errorMessage && enquiries.length === 0">
+    No enquiries found.
+  </p>
+
+  <div
+    class="enquiry-list"
+    *ngIf="!loading && enquiries.length > 0"
+  >
+    <div class="enquiry-card" *ngFor="let enquiry of enquiries">
+      <h3>{{ enquiry.name }}</h3>
+      <p><strong>Email:</strong> {{ enquiry.email }}</p>
+      <p><strong>Mobile:</strong> {{ enquiry.mobile }}</p>
+      <p><strong>Subject:</strong> {{ enquiry.subject }}</p>
+      <p><strong>Message:</strong> {{ enquiry.message }}</p>
+    </div>
+  </div>
+</div>
