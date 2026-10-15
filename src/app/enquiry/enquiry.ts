@@ -23,7 +23,7 @@ export class Enquiry {
 
   submitEnquiry(form: NgForm) {
     this.http.post(
-      'http://localhost:3000/api/enquiries',
+      'https://enquiry-backend-lm21.onrender.com/api/enquiries',
       this.enquiry
     ).subscribe({
       next: (response) => {
